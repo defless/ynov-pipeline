@@ -45,7 +45,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest --doctest-modules controllers.py --cov=app test/ > pytest-coverage.txt
+        pytest --doctest-modules controllers.py --cov=app . > pytest-coverage.txt
 
   warn:
     runs-on: ubuntu-latest
