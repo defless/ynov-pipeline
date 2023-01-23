@@ -46,12 +46,24 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --doctest-modules controllers.py
-    - name: Check is on
-      run: |
-        HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://www.google.com)
-        if [ $HTTP == 200 ]
-        then
-          echo "OK" 
-        else 
-          echo "not OK"
-        fi
+
+  warn:
+    runs-on: ubuntu-latest
+    needs: [tests, lint]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check is on
+        run: |
+          HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://www.google.com)
+          if [ $HTTP == 200 ]
+          then
+            echo "OK" 
+          else 
+            echo "not OK"
+          fi
+      - name: warn
+        run:
+          echo 'Pipeline ended'
+      
+      
+        
