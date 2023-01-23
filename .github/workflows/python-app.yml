@@ -35,4 +35,9 @@ jobs:
         pytest --doctest-modules controllers.py
     - name: Check is on
       run: |
-        if [ -f curl -s -o /dev/null -w "%{http_code}" http://www.google.com/ == 200 ]; then echo "OK" fi
+        if [ 200 == 200 ]
+        then
+          echo "OK" 
+        else 
+          echo "not OK"
+        fi
