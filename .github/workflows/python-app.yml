@@ -31,3 +31,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --doctest-modules controllers.py
+    - name: Check is on
+      run: |
+        HTTP_CODE = curl -s -o /dev/null -w "%{http_code}" http://www.google.com/
+        if [ -f HTTP_CODE == 200 ]; then echo "OK"
