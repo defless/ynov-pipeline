@@ -49,6 +49,7 @@ jobs:
 
   warn:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
     needs: [tests, lint]
     steps:
       - uses: actions/checkout@v3
