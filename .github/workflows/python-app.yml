@@ -102,7 +102,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Check is on
         run: |
-          HTTP=$(curl -s -o /dev/null -w "%{http_code}" https://defless.github.io/ynov-pipeline/)
+          HTTP=$(curl -s -o /dev/null -w "%{http_code}" ${{ steps.deployment.outputs.page_url }})
           if [ $HTTP == 200 ]
           then
             echo "OK" 
