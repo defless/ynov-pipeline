@@ -68,7 +68,7 @@ jobs:
         retention-days: 5
     - name: Generate a badge
       run: |
-        coverage-badge -o coverage.svg
+        coverage-badge -o iconCoverage.html
 
   deploy:
     environment:
