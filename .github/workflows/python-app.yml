@@ -60,16 +60,16 @@ jobs:
       run: |
         pytest --doctest-modules controllers.py --cov=.  --cov-report=html
     # Upload coverage results as artifacts
-    - name: Generate a badge
-      run: |
-        cd ./htmlcov
-        coverage-badge -o coverage.svg
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
         path: ./htmlcov
         retention-days: 5
+    - name: Generate a badge
+      run: |
+        cd ./htmlcov
+        coverage-badge -o coverage.svg
 
   deploy:
     environment:
