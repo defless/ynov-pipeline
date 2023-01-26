@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-7.2.0, pluggy-1.0.0
+rootdir: /Users/simondeflesschouwer/Documents/GitHub/ynov-pipeline
+plugins: cov-4.0.0
+collected 2 items
+
+controllers.py ..
+
+---------- coverage: platform darwin, python 3.9.6-final-0 -----------
+Name             Stmts   Miss  Cover
+------------------------------------
+controllers.py       5      1    80%
+routes.py           10     10     0%
+------------------------------------
+TOTAL               15     11    27%
+
+
+============================== 2 passed in 0.05s ===============================
