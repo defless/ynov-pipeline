@@ -93,16 +93,16 @@ jobs:
         uses: actions/deploy-pages@v1
 
 
-  warn:
+  isAlive:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [tests, lint]
+    needs: [deploy]
     steps:
       - uses: actions/checkout@v3
       - name: Check is on
         run: |
-          HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://www.google.com)
+          HTTP=$(curl -s -o /dev/null -w "%{http_code}" https://defless.github.io/ynov-pipeline/)
           if [ $HTTP == 200 ]
           then
             echo "OK" 
