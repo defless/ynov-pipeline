@@ -68,7 +68,6 @@ jobs:
         retention-days: 5
     - name: Generate a badge
       run: |
-        cd ./htmlcov
         coverage-badge -o coverage.svg
 
   deploy:
