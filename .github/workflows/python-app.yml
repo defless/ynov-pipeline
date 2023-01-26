@@ -78,12 +78,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: code-coverage-report
+          path: './htmlcov'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
           path: './htmlcov'
       - name: Deploy to GitHub Pages
         id: deployment
