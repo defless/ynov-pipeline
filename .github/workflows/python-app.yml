@@ -9,6 +9,7 @@ on:
 
 jobs:
   lint:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -25,6 +26,7 @@ jobs:
         flake8 controllers.py
         flake8 routes.py
   tests:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     needs: [lint]
@@ -48,6 +50,7 @@ jobs:
         pytest --doctest-modules controllers.py --cov=app controllers.py > pytest-coverage.txt
 
   warn:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     if: ${{ always() }}
     needs: [tests, lint]
