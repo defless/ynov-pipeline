@@ -97,7 +97,7 @@ jobs:
         uses: actions/deploy-pages@v1
         
   deploy-hotfix:
-    if: github.ref == 'refs/heads/main'
+    if: "contains(github.event.head_commit.message, 'hotfix')"
     environment:
       name: production
       url: ${{ steps.deployment.outputs.page_url }}
@@ -106,17 +106,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: code-coverage-report
-          path: './htmlcov'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './htmlcov'
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
