@@ -64,6 +64,7 @@ jobs:
       with:
         name: code-coverage-report
         path: ./htmlcov
+        retention-days: 5
 
   deploy:
     environment:
